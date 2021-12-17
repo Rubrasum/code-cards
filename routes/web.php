@@ -1,5 +1,10 @@
 <?php
 
+
+use App\Http\Controllers\pongController;
+use App\Jobs\incrementPlayerScore;
+use App\Models\User;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,9 +18,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 Route::get('/', function() {
-    dispatch(function () {
-        logger('I have to tell you about the future.');
-    })->delay(now()->addMinutes(2));
-
-    return 'Finished';
+    try {
+        DB::connection()->getPdo();
+    } catch (\Exception $e) {
+        die("Could not connect to the database.  Please check your configuration. error:" . $e );
+    }
+    return view('welcome');
 });
+
+Route::get('/pong', [pongController::class, 'showForm']);
+
+Route::post('/pong/score/', [pongController::class, 'processForm']);
