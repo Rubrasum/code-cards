@@ -6,11 +6,11 @@
 
         <div class="d-flex bd-highlight mb-4">
             <div class="p-2 w-100 bd-highlight">
-                <h2>Laravel AJAX Example</h2>
+                <h2>Quiz Cards</h2>
             </div>
             <div class="p-2 flex-shrink-0 bd-highlight">
                 <button class="btn btn-success" id="btn-add">
-                    Add Quizcard
+                    Add Quiz Card
                 </button>
             </div>
         </div>
@@ -24,8 +24,8 @@
                     <th>Description</th>
                 </tr>
                 </thead>
-                <tbody id="quizcards-list" name="quizcards-list">
-                @foreach ($quizcard as $data)
+                <tbody id="quizcards-list" name="quizcardsli-st">
+                @foreach ($quizcards as $data)
                     <tr id="quizcard{{$data->id}}">
                         <td>{{$data->id}}</td>
                         <td>{{$data->title}}</td>

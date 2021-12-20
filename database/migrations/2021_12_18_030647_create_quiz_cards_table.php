@@ -13,7 +13,7 @@ class CreateQuizCardsTable extends Migration
      */
     public function up()
     {
-        Schema::create('todos', function (Blueprint $table) {
+        Schema::create('quiz_cards', function (Blueprint $table) {
             $table->id();
             $table->integer('user_id');
             $table->boolean('is_archived');
