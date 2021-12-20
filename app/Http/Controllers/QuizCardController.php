@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreQuizCardRequest;
 use App\Http\Requests\UpdateQuizCardRequest;
+use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 use App\Models\QuizCard;
 
 class QuizCardController extends Controller
@@ -11,7 +13,6 @@ class QuizCardController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
      */
     public function index()
     {
@@ -20,14 +21,13 @@ class QuizCardController extends Controller
         $quizcards = QuizCard::all();
 
         // load the view and pass the sharks
-//        return View::make('quizcards.index')->with('quizcards', $quizcards);
-         return view('home')->with(compact('todo'));
+        // return View::make('quizcards.index')->with('quizcards', $quizcards);
+        return view('quizcard')->with(compact('quizcards'));
     }
 
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Http\Response
      */
     public function create()
     {
@@ -37,19 +37,21 @@ class QuizCardController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \App\Http\Requests\StoreQuizCardRequest  $request
-     * @return \Illuminate\Http\Response
      */
-    public function store(StoreQuizCardRequest $request)
+    public function store(Request $request)
     {
-        //
+        $data = $request->validate([
+            'title' => 'required|max:255',
+            'description' => 'required'
+        ]);
+        $quizcard = QuizCard::create($data);
+
+        return Response::json($quizcard);
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\QuizCard  $quizCard
-     * @return \Illuminate\Http\Response
      */
     public function show(QuizCard $quizCard)
     {
@@ -59,8 +61,6 @@ class QuizCardController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\QuizCard  $quizCard
-     * @return \Illuminate\Http\Response
      */
     public function edit(QuizCard $quizCard)
     {
@@ -70,9 +70,6 @@ class QuizCardController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \App\Http\Requests\UpdateQuizCardRequest  $request
-     * @param  \App\Models\QuizCard  $quizCard
-     * @return \Illuminate\Http\Response
      */
     public function update(UpdateQuizCardRequest $request, QuizCard $quizCard)
     {
@@ -82,8 +79,6 @@ class QuizCardController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\QuizCard  $quizCard
-     * @return \Illuminate\Http\Response
      */
     public function destroy(QuizCard $quizCard)
     {

@@ -2,6 +2,7 @@
 
 
 use App\Http\Controllers\pongController;
+use App\Http\Controllers\QuizCardController;
 use App\Jobs\incrementPlayerScore;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -26,6 +27,7 @@ Route::get('/', function() {
     return view('welcome');
 });
 
-Route::get('/pong', [pongController::class, 'showForm']);
+Route::get('/', [QuizCardController::class, 'index']);
 
-Route::post('/pong/score/', [pongController::class, 'processForm']);
+Route::resource('quizcard', QuizCardController::class);
+
