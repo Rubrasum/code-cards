@@ -19,9 +19,11 @@
             <table class="table table-inverse">
                 <thead>
                 <tr>
-                    <th>ID</th>
-                    <th>Title</th>
-                    <th>Description</th>
+                    <th>Group</th>
+                    <th>Parent</th>
+                    <th>Type</th>
+                    <th>Text 1</th>
+                    <th>Text 2</th>
                 </tr>
                 </thead>
                 <tbody id="quizcard-list" name="quizcardsli-st">
