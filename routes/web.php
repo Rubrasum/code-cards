@@ -27,7 +27,7 @@ Route::get('/', function() {
     return view('welcome');
 });
 
-Route::get('/', [QuizCardController::class, 'index']);
+Route::get('/quizcard', [QuizCardController::class, 'index']);
 
-Route::resource('quizcard', QuizCardController::class);
+Route::resource('quizcards', QuizCardController::class);
 

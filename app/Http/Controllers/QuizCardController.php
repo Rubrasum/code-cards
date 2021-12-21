@@ -18,11 +18,11 @@ class QuizCardController extends Controller
     {
         //
         // get all the sharks
-        $quizcards = QuizCard::all();
+        $quizcard = QuizCard::all();
 
         // load the view and pass the sharks
         // return View::make('quizcards.index')->with('quizcards', $quizcards);
-        return view('quizcard')->with(compact('quizcards'));
+        return view('quizcard')->with(compact('quizcard'));
     }
 
     /**
@@ -41,12 +41,16 @@ class QuizCardController extends Controller
     public function store(Request $request)
     {
         $data = $request->validate([
-            'title' => 'required|max:255',
-            'description' => 'required'
+            'group' => 'required|max:80',
+            'parent' => 'required|max:80',
+            'type' => 'required|max:80',
+            'data_string_1' => 'required|max:510',
+            'data_string_2' => 'required|max:510',
+
         ]);
         $quizcard = QuizCard::create($data);
 
-        return Response::json($quizcard);
+        return $quizcard;
     }
 
     /**

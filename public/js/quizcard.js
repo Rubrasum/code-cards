@@ -16,21 +16,29 @@ jQuery(document).ready(function($){
         });
         e.preventDefault();
         var formData = {
-            title: jQuery('#title').val(),
-            description: jQuery('#description').val(),
+            group: jQuery('#group').val(),
+            parent: jQuery('#parent').val(),
+            type: jQuery('#type').val(),
+            data_string_1: jQuery('#data_string_1').val(),
+            data_string_2: jQuery('#data_string_2').val(),
         };
         var state = jQuery('#btn-save').val();
         var type = "POST";
         var quizcard_id = jQuery('#quizcard_id').val();
-        var ajaxurl = 'quizcard';
+        var ajaxurl = '/quizcards';
         $.ajax({
             type: type,
             url: ajaxurl,
             data: formData,
             dataType: 'json',
             success: function (data) {
-                var quizcard = '<tr id="quizcard' + data.id + '"><td>' + data.id + '</td><td>' + data.title + '</td><td>' + data.description + '</td>';
-                if (state == "add") {
+                var quizcard = '<tr id="quizcard' + data.id + '">' +
+                    '<td>' + data.group + '</td>' +
+                    '<td>' + data.parent + '</td>' +
+                    '<td>' + data.type + '</td>' +
+                    '<td>' + data.data_string_1 + '</td>' +
+                    '<td>' + data.data_string_2 + '</td>';
+                if (state === "add") {
                     jQuery('#quizcard-list').append(quizcard);
                 } else {
                     jQuery("#quizcard" + quizcard_id).replaceWith(quizcard);

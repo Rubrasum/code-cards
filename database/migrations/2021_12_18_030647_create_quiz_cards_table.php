@@ -15,11 +15,11 @@ class CreateQuizCardsTable extends Migration
     {
         Schema::create('quiz_cards', function (Blueprint $table) {
             $table->id();
-            $table->integer('user_id');
-            $table->boolean('is_archived');
-            $table->string('group');
-            $table->string('parent');
-            $table->string('type');
+            $table->integer('user_id')->default(1);
+            $table->boolean('is_archived')->default(0);
+            $table->string('group')->default('none');
+            $table->string('parent')->default('none');
+            $table->string('type')->default('none');
             $table->string('data_string_1');
             $table->string('data_string_2');
         });

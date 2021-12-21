@@ -24,12 +24,14 @@
                     <th>Description</th>
                 </tr>
                 </thead>
-                <tbody id="quizcards-list" name="quizcardsli-st">
-                @foreach ($quizcards as $data)
+                <tbody id="quizcard-list" name="quizcardsli-st">
+                @foreach ($quizcard as $data)
                     <tr id="quizcard{{$data->id}}">
-                        <td>{{$data->id}}</td>
-                        <td>{{$data->title}}</td>
-                        <td>{{$data->description}}</td>
+                        <td>{{$data->group}}</td>
+                        <td>{{$data->parent}}</td>
+                        <td>{{$data->type}}</td>
+                        <td>{{$data->data_string_1}}</td>
+                        <td>{{$data->data_string_2}}</td>
                     </tr>
                 @endforeach
                 </tbody>
@@ -45,22 +47,40 @@
                             <form id="myForm" name="myForm" class="form-horizontal" novalidate="">
 
                                 <div class="form-group">
-                                    <label>Title</label>
-                                    <input type="text" class="form-control" id="title" name="title"
-                                           placeholder="Enter title" value="">
+                                    <label>Group</label>
+                                    <input type="text" class="form-control" id="group" name="group"
+                                           placeholder="Enter Group" value="">
                                 </div>
 
                                 <div class="form-group">
-                                    <label>Description</label>
-                                    <input type="text" class="form-control" id="description" name="description"
-                                           placeholder="Enter Description" value="">
+                                    <label>Parent</label>
+                                    <input type="text" class="form-control" id="parent" name="parent"
+                                           placeholder="Enter Parent" value="">
+                                </div>
+
+                                <div class="form-group">
+                                    <label>Type</label>
+                                    <input type="text" class="form-control" id="type" name="type"
+                                           placeholder="Enter Type" value="">
+                                </div>
+
+                                <div class="form-group">
+                                    <label>Question</label>
+                                    <input type="text" class="form-control" id="data_string_1" name="data_string_1"
+                                           placeholder="Enter Question" value="">
+                                </div>
+
+                                <div class="form-group">
+                                    <label>Answer</label>
+                                    <input type="text" class="form-control" id="data_string_2" name="data_string_2"
+                                           placeholder="Enter Answer" value="">
                                 </div>
                             </form>
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-primary" id="btn-save" value="add">Save changes
                             </button>
-                            <input type="hidden" id="quizcard_id" name="quizcard_id" value="0">
+                            <input type="hidden" id="quizcard_id" name="quizcard_id" value="1">
                         </div>
                     </div>
                 </div>
