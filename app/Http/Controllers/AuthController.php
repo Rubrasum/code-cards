@@ -56,7 +56,7 @@ class AuthController extends Controller
      */
     public function login()
     {
-        return view('login');
+        return view('auth.login');
     }
 
     /**
@@ -97,7 +97,7 @@ class AuthController extends Controller
 
         $request->session()->regenerateToken();
 
-        return redirect('logged-out');
+        return redirect('/logged-out');
     }
 
     /**
@@ -124,10 +124,10 @@ class AuthController extends Controller
     public function dashboard()
     {
         if(Auth::check()){
-            return view('dashboard');
+            return redirect('/dashboard');
         }
 
-        return redirect("dashboard-fail");
+        return redirect("/dashboard-fail");
     }
 
 }
