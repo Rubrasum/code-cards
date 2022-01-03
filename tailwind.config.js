@@ -8,7 +8,10 @@ module.exports = {
   theme: {
     extend: {
         colors: {
-            laravel_red: '#F05340'
+            site_primary_color: '#111827',
+            site_primary_color_hover: '#0f172a',
+            site_secondary_color: '#F05340',
+            site_secondary_color_hover: '#d84a39'
         },
     },
   },

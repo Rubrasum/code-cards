@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
 </head>
 
-<body class="container mt-5">
+<body class="container mt-5 bg-site_primary_color">
 
 @yield('content')
 
