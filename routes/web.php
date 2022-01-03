@@ -1,7 +1,7 @@
 <?php
 
 
-use App\Http\Controllers\pongController;
+use App\Http\Controllers\LoginController;
 use App\Http\Controllers\QuizCardController;
 use App\Jobs\incrementPlayerScore;
 use App\Models\User;
@@ -18,6 +18,7 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+// Home page plus DB check
 Route::get('/', function() {
     try {
         DB::connection()->getPdo();
@@ -26,6 +27,10 @@ Route::get('/', function() {
     }
     return view('welcome');
 });
+
+// Login
+Route::get('/login', [LoginController::class, 'index']);
+Route::post('/login', [LoginController::class, 'authenticate']);
 
 Route::get('/quizcard', [QuizCardController::class, 'index']);
 
