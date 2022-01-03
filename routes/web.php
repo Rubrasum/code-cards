@@ -1,7 +1,7 @@
 <?php
 
 
-use App\Http\Controllers\LoginController;
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\QuizCardController;
 use App\Jobs\incrementPlayerScore;
 use App\Models\User;
@@ -29,8 +29,9 @@ Route::get('/', function() {
 });
 
 // Login
-Route::get('/login', [LoginController::class, 'index']);
-Route::post('/login', [LoginController::class, 'authenticate']);
+Route::get('/login', [AuthController::class, 'login']);
+Route::post('/login', [AuthController::class, 'authenticate']);
+
 
 Route::get('/quizcard', [QuizCardController::class, 'index']);
 

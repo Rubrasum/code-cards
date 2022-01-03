@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 
-class LoginController extends Controller
+class AuthController extends Controller
 {
     /**
      * Handle an authentication attempt.
