@@ -27,10 +27,18 @@ Route::get('/', function() {
     }
     return view('welcome');
 });
-
+/*
+ * Authentication Routes
+ */
+// Registration
+Route::get('/signup', [AuthController::class, 'signup']);
+Route::post('/signup', [AuthController::class, 'registration']);
 // Login
 Route::get('/login', [AuthController::class, 'login']);
 Route::post('/login', [AuthController::class, 'authenticate']);
+// Logout
+Route::post('/logout', [AuthController::class, 'logout']);
+Route::post('/logout-other-devices', [AuthController::class, 'logout-other-devices']);
 
 
 Route::get('/quizcard', [QuizCardController::class, 'index']);
