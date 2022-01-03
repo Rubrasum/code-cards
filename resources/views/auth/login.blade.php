@@ -13,7 +13,7 @@
                 <div class="max-w-md w-full bg-white rounded p-6 space-y-4">
                     <div class="mb-4">
                         <p class="text-site_secondary_color text-3xl font-bold">Sign In</p>
-                        <h2 class="text-xl ">Good to see you again!</h2>
+                        <h2 class="text-xl text-site_primary_color">Good to see you again!</h2>
                     </div>
 
                     <div>
@@ -38,14 +38,15 @@
                     </div>
 
                     <div class="flex items-center justify-between">
-                        <div class="flex flex-row items-center">
+                        <div class="flex mb-auto">
                             <input type="checkbox" class="focus:ring-blue-500 h-4 w-4 text-blue-600 border-gray-300
                                 rounded">
                             <label for="comments" class="ml-2 text-sm font-normal text-gray-600">Remember me</label>
                         </div>
 
-                        <div>
-                            <a class="text-sm text-site_secondary_color hover:underline" href="#">Forgot password?</a>
+                        <div class="text-right ">
+                            <p class="mb-2"><a class="text-sm text-site_secondary_color hover:text-site_secondary_color_hover hover:underline" href="#">Forgot password?</a></p>
+                            <p class="mb-0"><a class="text-sm text-site_secondary_color hover:text-site_secondary_color_hover hover:underline" href="#">New to ProCards? Sign Up!</a></p>
                         </div>
                     </div>
                 </div>
