@@ -33,6 +33,8 @@ class AuthController extends Controller
 
         $data = $request->all();
         $user_instance = $this->createUser($data);
+
+        Auth::login($user_instance);
         return redirect("/dashboard");
     }
 
