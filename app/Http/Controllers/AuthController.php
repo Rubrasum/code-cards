@@ -78,7 +78,9 @@ class AuthController extends Controller
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
 
-            return redirect()->intended('welcome');
+//            return redirect()->intended('quizcardsfloopy');
+
+            return redirect("/authenticated");
         }
 
         return back()->withErrors([
