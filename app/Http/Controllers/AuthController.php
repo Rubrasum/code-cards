@@ -128,11 +128,7 @@ class AuthController extends Controller
      */
     public function dashboard()
     {
-        if(Auth::check()){
-            return redirect('/dashboard');
-        }
-
-        return redirect("/dashboard-fail");
+        return view('auth.dashboard');
     }
 
 }
