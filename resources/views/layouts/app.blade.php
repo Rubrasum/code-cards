@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
 <head>
     <meta charset="utf-8">
@@ -9,10 +9,37 @@
 
     <title>Laravel AJAX CRUD Example</title>
     <link href="/css/app.css" rel="stylesheet">
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Nunito', sans-serif;
+        }
+    </style>
+
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
 </head>
 
 <body class="container mt-5 bg-site_primary_color">
+    <div>
+        <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
+            @guest
+            <a href="{{ route('login') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Log in</a>
+            <a href="{{ route('registration') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Signup</a>
+            @endguest
+            @auth
+            <form action="{{ route('logout') }}" method="POST">
+                @csrf
+                <button type="submit" class="text-sm text-gray-700 dark:text-gray-500 underline">
+                    {{ __('Logout') }}
+                </button>
+            </form>
+            <a href="{{ route('logout') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Logout</a>
+            @endauth
+        </div>
+    </div>
+
 
 @yield('content')
 
