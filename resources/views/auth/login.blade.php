@@ -18,9 +18,9 @@
 
                     <div>
                         <input class="w-full p-4 text-sm bg-gray-50 focus:outline-none border border-gray-200 rounded
-                            text-gray-600" type="text" placeholder="Username" id="username" name="username">
+                            text-gray-600" type="text" placeholder="E-mail" id="email" name="email">
                     </div>
-                    @error('username')
+                    @error('email')
                         <div class="alert alert-danger">{{ $message }}</div>
                     @enderror
 
@@ -45,8 +45,14 @@
                         </div>
 
                         <div class="text-right ">
-                            <p class="mb-2"><a class="text-sm text-site_secondary_color hover:text-site_secondary_color_hover hover:underline" href="#">Forgot password?</a></p>
-                            <p class="mb-0"><a class="text-sm text-site_secondary_color hover:text-site_secondary_color_hover hover:underline" href="#">New to ProCards? Sign Up!</a></p>
+                            <p class="mb-2">
+                                <a class="text-sm text-site_secondary_color hover:text-site_secondary_color_hover hover:underline"
+                                   href="#">Forgot password?</a>
+                            </p>
+                            <p class="mb-0">
+                                <a class="text-sm text-site_secondary_color hover:text-site_secondary_color_hover hover:underline"
+                                   href="/signup">New to ProCards? Sign Up!</a>
+                            </p>
                         </div>
                     </div>
                 </div>
