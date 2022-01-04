@@ -26,13 +26,13 @@ class AuthController extends Controller
     public function registration(Request $request)
     {
         $request->validate([
+            'name' => 'required',
             'email' => 'required|email|unique:users',
             'password' => 'required|min:6',
         ]);
 
         $data = $request->all();
-        $check = $this->createUser($data);
-
+        $user_instance = $this->createUser($data);
         return redirect("/dashboard");
     }
 
@@ -44,7 +44,8 @@ class AuthController extends Controller
     public function createUser(array $data)
     {
         return User::create([
-            'username' => $data['username'],
+            'name' => $data['name'],
+            'email' => $data['email'],
             'password' => Hash::make($data['password'])
         ]);
     }
@@ -68,7 +69,7 @@ class AuthController extends Controller
     public function authenticate(Request $request)
     {
         $credentials = $request->validate([
-            'username' => ['required'],
+            'email' => ['required'],
             'password' => ['required'],
         ]);
 
@@ -79,7 +80,7 @@ class AuthController extends Controller
         }
 
         return back()->withErrors([
-            'username' => 'The provided credentials do not match our records.',
+            'email' => 'The provided credentials do not match our records.',
         ]);
     }
 
