@@ -31,16 +31,16 @@ Route::get('/', function() {
  * Authentication Routes
  */
 // Registration
-Route::get('/signup', [AuthController::class, 'signup']);
+Route::get('/signup', [AuthController::class, 'signup'])->name('registration');
 Route::post('/signup', [AuthController::class, 'registration']);
 // Login
 Route::get('/login', [AuthController::class, 'login'])->name('login');
 Route::post('/login', [AuthController::class, 'authenticate']);
 // Logout
-Route::post('/logout', [AuthController::class, 'logout']);
+Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 Route::post('/logout-other-devices', [AuthController::class, 'logout-other-devices']);
 
-Route::get('/dashboard', [AuthController::class, 'dashboard'])->middleware('auth');
+Route::get('/dashboard', [AuthController::class, 'dashboard'])->middleware('auth')->name('dashboard');
 
 
 Route::get('/quizcard', [QuizCardController::class, 'index']);
