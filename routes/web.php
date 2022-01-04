@@ -40,6 +40,8 @@ Route::post('/login', [AuthController::class, 'authenticate']);
 Route::post('/logout', [AuthController::class, 'logout']);
 Route::post('/logout-other-devices', [AuthController::class, 'logout-other-devices']);
 
+Route::get('/dashboard', [AuthController::class, 'dashboard'])->middleware('auth');
+
 
 Route::get('/quizcard', [QuizCardController::class, 'index']);
 
