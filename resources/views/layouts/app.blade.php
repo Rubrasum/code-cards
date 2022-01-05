@@ -35,7 +35,7 @@
                     {{ __('Logout') }}
                 </button>
             </form>
-            <a href="{{ route('logout') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Logout</a>
+            <a href="{{ route('dashboard') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Dashboard</a>
             @endauth
         </div>
     </div>
