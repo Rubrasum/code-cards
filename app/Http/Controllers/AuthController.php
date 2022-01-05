@@ -92,7 +92,6 @@ class AuthController extends Controller
      * Log the user out of the application.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\RedirectResponse
      */
     public function logout(Request $request)
     {
@@ -102,7 +101,7 @@ class AuthController extends Controller
 
         $request->session()->regenerateToken();
 
-        return redirect('/logged-out');
+        return view('/welcome');
     }
 
     /**
