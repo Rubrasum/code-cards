@@ -37,7 +37,7 @@ Route::post('/signup', [AuthController::class, 'registration']);
 Route::get('/login', [AuthController::class, 'login'])->name('login');
 Route::post('/login', [AuthController::class, 'authenticate']);
 // Logout
-Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+Route::match(['get', 'post'], '/logout', [AuthController::class, 'logout'])->name('logout');
 Route::post('/logout-other-devices', [AuthController::class, 'logout-other-devices']);
 
 Route::get('/dashboard', [AuthController::class, 'dashboard'])->middleware('auth')->name('dashboard');

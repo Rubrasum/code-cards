@@ -80,7 +80,7 @@ class AuthController extends Controller
 
 //            return redirect()->intended('quizcardsfloopy');
 
-            return redirect("/authenticated");
+            return redirect("/dashboard");
         }
 
         return back()->withErrors([
@@ -95,6 +95,10 @@ class AuthController extends Controller
      */
     public function logout(Request $request)
     {
+        if ($request->isMethod('get')) {
+            return redirect('/');
+        }
+
         Auth::logout();
 
         $request->session()->invalidate();
