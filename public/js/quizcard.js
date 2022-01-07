@@ -16,7 +16,7 @@ jQuery(document).ready(function($){
         });
         e.preventDefault();
         var formData = {
-            group: jQuery('#group').val(),
+            deck: jQuery('#deck').val(),
             parent: jQuery('#parent').val(),
             type: jQuery('#type').val(),
             data_string_1: jQuery('#data_string_1').val(),
@@ -33,7 +33,7 @@ jQuery(document).ready(function($){
             dataType: 'json',
             success: function (data) {
                 var quizcard = '<tr id="quizcard' + data.id + '">' +
-                    '<td>' + data.group + '</td>' +
+                    '<td>' + data.deck + '</td>' +
                     '<td>' + data.parent + '</td>' +
                     '<td>' + data.type + '</td>' +
                     '<td>' + data.data_string_1 + '</td>' +
