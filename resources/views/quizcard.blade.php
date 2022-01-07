@@ -19,7 +19,7 @@
             <table class="table table-inverse">
                 <thead>
                 <tr>
-                    <th>Group</th>
+                    <th>Deck</th>
                     <th>Parent</th>
                     <th>Type</th>
                     <th>Text 1</th>
@@ -29,7 +29,7 @@
                 <tbody id="quizcard-list" name="quizcardsli-st">
                 @foreach ($quizcard as $data)
                     <tr id="quizcard{{$data->id}}">
-                        <td>{{$data->group}}</td>
+                        <td>{{$data->deck}}</td>
                         <td>{{$data->parent}}</td>
                         <td>{{$data->type}}</td>
                         <td>{{$data->data_string_1}}</td>
@@ -49,9 +49,9 @@
                             <form id="myForm" name="myForm" class="form-horizontal" novalidate="">
 
                                 <div class="form-group">
-                                    <label>Group</label>
-                                    <input type="text" class="form-control" id="group" name="group"
-                                           placeholder="Enter Group" value="">
+                                    <label>deck</label>
+                                    <input type="text" class="form-control" id="deck" name="deck"
+                                           placeholder="Enter Deck Name" value="">
                                 </div>
 
                                 <div class="form-group">
