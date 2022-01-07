@@ -11,9 +11,9 @@
             <div  class="row-span-1 text-center">
                 <h1>Dashboard</h1>
             </div>
-            <div class="row-span-2 grid-cols-1 w-full bg-white rounded p-6 space-y-2 grid gap-4">
+            <div class="row-span-1 grid-cols-1 w-full bg-white rounded p-6 space-y-2 grid gap-4">
                 <div class="mb-4 row-span-1">
-                    <p class="text-site_secondary_color text-3xl font-bold">You are Logged In</p>
+                    <p class="text-site_secondary_color text-3xl font-bold">Hello <?php echo $user->name ?></p>
                 </div>
 
             </div>

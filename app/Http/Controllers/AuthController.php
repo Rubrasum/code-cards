@@ -131,7 +131,12 @@ class AuthController extends Controller
      */
     public function dashboard()
     {
-        return view('auth.dashboard');
+        $user = Auth::user();
+        return view('auth.dashboard',
+            [
+                'user' => $user
+            ]
+        );
     }
 
 }
