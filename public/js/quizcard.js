@@ -16,6 +16,7 @@ jQuery(document).ready(function($){
         });
         e.preventDefault();
         var formData = {
+            user_id: jQuery('#user_id').val(),
             deck: jQuery('#deck').val(),
             parent: jQuery('#parent').val(),
             type: jQuery('#type').val(),

@@ -15,7 +15,7 @@ class CreateQuizCardsTable extends Migration
     {
         Schema::create('quiz_cards', function (Blueprint $table) {
             $table->id();
-            $table->integer('user_id')->default(1);
+            $table->integer('user_id');
             $table->boolean('is_archived')->default(0);
             $table->string('deck')->default('none');
             $table->string('parent')->default('none');

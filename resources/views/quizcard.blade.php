@@ -47,7 +47,8 @@
                         </div>
                         <div class="modal-body">
                             <form id="myForm" name="myForm" class="form-horizontal" novalidate="">
-
+                                <input type="hidden" class="form-control" id="user_id" name="user_id"
+                                       placeholder="Enter Deck" value="<?php echo $user->id; ?>">
                                 <div class="form-group">
                                     <label>Deck</label>
                                     <input type="text" class="form-control" id="deck" name="deck"
