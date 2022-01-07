@@ -20,6 +20,7 @@ class CreateUsersTable extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->integer('score')->default(0);
+            $table->integer('refresh_ticket_id'); // If 0, do nothing. Otherwise, it's a fk for the latest refresh ticket, related to this user.
             $table->rememberToken();
             $table->timestamps();
         });
