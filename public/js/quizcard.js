@@ -25,7 +25,7 @@ jQuery(document).ready(function($){
         var state = jQuery('#btn-save').val();
         var type = "POST";
         var quizcard_id = jQuery('#quizcard_id').val();
-        var ajaxurl = '/quizcards';
+        var ajaxurl = '/api/quizcards';
         $.ajax({
             type: type,
             url: ajaxurl,
