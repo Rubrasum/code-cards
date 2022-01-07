@@ -17,7 +17,7 @@ class CreateQuizCardsTable extends Migration
             $table->id();
             $table->integer('user_id')->default(1);
             $table->boolean('is_archived')->default(0);
-            $table->string('group')->default('none');
+            $table->string('deck')->default('none');
             $table->string('parent')->default('none');
             $table->string('type')->default('none');
             $table->string('data_string_1');

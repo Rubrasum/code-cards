@@ -16,7 +16,7 @@ class QuizCard extends Model
     protected $fillable = [
         'user_id',
         'is_archived',
-        'group',
+        'deck',
         'parent',
         'type',
         'data_string_1',

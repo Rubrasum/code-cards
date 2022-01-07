@@ -41,7 +41,7 @@ class QuizCardController extends Controller
     public function store(Request $request)
     {
         $data = $request->validate([
-            'group' => 'required|max:80',
+            'deck' => 'required|max:80',
             'parent' => 'required|max:80',
             'type' => 'required|max:80',
             'data_string_1' => 'required|max:510',
