@@ -29,13 +29,13 @@
             <a href="{{ route('registration') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Signup</a>
             @endguest
             @auth
-            <form action="{{ route('logout') }}" method="POST">
+            <form class="inline-block" action="{{ route('logout') }}" method="POST">
                 @csrf
-                <button type="submit" class="text-sm text-gray-700 dark:text-gray-500 underline">
+                <button type="submit" class="inline-block text-sm text-gray-700 dark:text-gray-500 underline">
                     {{ __('Logout') }}
                 </button>
             </form>
-            <a href="{{ route('dashboard') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Dashboard</a>
+            <a href="{{ route('dashboard') }}" class="text-sm text-gray-700 dark:text-gray-500 underline inline-block">Dashboard</a>
             @endauth
         </div>
     </div>
