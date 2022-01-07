@@ -14,7 +14,7 @@
                 </div>
 
                 <div class="mt-8 bg-gray-500 overflow-hidden shadow sm:rounded-lg">
-                    <div class="grid bg-gray-500 grid-cols-1 md:grid-cols-1">
+                    <div class="grid bg-gray-700 grid-cols-1 md:grid-cols-1">
                         <div class="p-6">
                             <h1 class="text-site_secondary_color text-3xl font-bold">Code Cards</h1>
                             <div class="flex items-center">
