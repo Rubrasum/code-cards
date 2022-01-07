@@ -1,7 +1,8 @@
 <?php
 
 
-use App\Http\Controllers\pongController;
+use App\Http\Controllers\AuthController;
+use App\Http\Controllers\QuizCardController;
 use App\Jobs\incrementPlayerScore;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -17,6 +18,7 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+// Home page plus DB check
 Route::get('/', function() {
     try {
         DB::connection()->getPdo();
@@ -25,7 +27,23 @@ Route::get('/', function() {
     }
     return view('welcome');
 });
+/*
+ * Authentication Routes
+ */
+// Registration
+Route::get('/signup', [AuthController::class, 'signup'])->name('registration');
+Route::post('/signup', [AuthController::class, 'registration']);
+// Login
+Route::get('/login', [AuthController::class, 'login'])->name('login');
+Route::post('/login', [AuthController::class, 'authenticate']);
+// Logout
+Route::match(['get', 'post'], '/logout', [AuthController::class, 'logout'])->name('logout');
+Route::post('/logout-other-devices', [AuthController::class, 'logout-other-devices']);
 
-Route::get('/pong', [pongController::class, 'showForm']);
+Route::get('/dashboard', [AuthController::class, 'dashboard'])->middleware('auth')->name('dashboard');
 
-Route::post('/pong/score/', [pongController::class, 'processForm']);
+
+Route::get('/quizcard', [QuizCardController::class, 'index']);
+
+Route::resource('quizcards', QuizCardController::class);
+
