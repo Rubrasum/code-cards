@@ -20,7 +20,6 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-//Route::resource('quizcards', QuizCardController::class);
 Route::apiResources([
     'quizcards' => QuizCardApiController::class,
 ]);
