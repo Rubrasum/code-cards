@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreQuizCardRequest;
 use App\Http\Requests\UpdateQuizCardRequest;
+use App\Http\Resources\QuizCardCollection;
+use App\Http\Resources\QuizCardResource;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use App\Models\QuizCard;
@@ -16,12 +18,7 @@ class QuizCardController extends Controller
      */
     public function index()
     {
-        //
-        // get all the sharks
         $quizcard = QuizCard::all();
-
-        // load the view and pass the sharks
-        // return View::make('quizcards.index')->with('quizcards', $quizcards);
         return view('quizcard')->with(compact('quizcard'));
     }
 
