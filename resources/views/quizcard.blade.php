@@ -49,9 +49,9 @@
                             <form id="myForm" name="myForm" class="form-horizontal" novalidate="">
 
                                 <div class="form-group">
-                                    <label>deck</label>
+                                    <label>Deck</label>
                                     <input type="text" class="form-control" id="deck" name="deck"
-                                           placeholder="Enter Deck Name" value="">
+                                           placeholder="Enter Deck" value="">
                                 </div>
 
                                 <div class="form-group">
