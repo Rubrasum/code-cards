@@ -39,8 +39,8 @@ class Stored implements ShouldBroadcast
      */
     public function broadcastOn()
     {
-        Logger("Broadcasting QuizCardStored Event on channel: quizcard.".$this->quizcard->user_id);
-        return new PrivateChannel('quizcard.'.$this->quizcard->user_id);
+        Logger("Broadcasting QuizCardStored Event on channel: private.quizcard.".$this->quizcard->user_id);
+        return new Channel('quizcard.'.$this->quizcard->user_id);
     }
 
     /**
