@@ -9,6 +9,7 @@ use App\Http\Resources\QuizCardResource;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use App\Models\QuizCard;
+use Illuminate\Support\Facades\Auth;
 
 class QuizCardController extends Controller
 {
@@ -18,8 +19,9 @@ class QuizCardController extends Controller
      */
     public function index()
     {
+        $user = Auth::user();
         $quizcard = QuizCard::all();
-        return view('quizcard')->with(compact('quizcard'));
+        return view('quizcard', ['user' => $user])->with(compact('quizcard'));
     }
 
     /**
