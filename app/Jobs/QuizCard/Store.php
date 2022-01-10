@@ -35,6 +35,11 @@ class Store implements ShouldQueue
      */
     public function handle()
     {
-        logger(now());
+        if ($this->quizcard->save()) {
+            Logger('Dispatched QuizCard Store Job.');
+            QuizCardStored::dispatch($this->quizcard);
+        } else {
+            throw new \Exception('QuizCard failed to save!');
+        }
     }
 }
