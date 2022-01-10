@@ -10,6 +10,7 @@ use App\Http\Resources\QuizCardResource;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use App\Models\QuizCard;
+use Illuminate\Support\Facades\Log;
 
 class QuizCardApiController extends Controller
 {
@@ -41,6 +42,7 @@ class QuizCardApiController extends Controller
         // Validate Form Data.
         // Need to make sure this returns failure. It might happen automatically
         $data = $request->validate([
+            'user_id' => 'required',
             'deck' => 'required|max:80',
             'parent' => 'required|max:80',
             'type' => 'required|max:80',
@@ -49,8 +51,12 @@ class QuizCardApiController extends Controller
         ]);
         // Create quizcard object
         $quizcard = new QuizCard($data);
+
+        Logger('ApiController QuizCard Store Method Called');
+
         // Dispatch job to save Quizcard, and return result to notify front-end.
-        return QuizCardStore::dispatch($quizcard)->onQueue('store');
+        QuizCardStore::dispatch($quizcard);
+        return "Quiz Card Store Job Dispatched.";
     }
 
     /**
