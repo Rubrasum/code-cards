@@ -54,4 +54,14 @@ class Stored implements ShouldBroadcast
             'id' => $this->quizcard->id
         ];
     }
+
+    /**
+     * The event's broadcast name.
+     *
+     * @return string
+     */
+    public function broadcastAs()
+    {
+        return 'QuizCardStored';
+    }
 }
