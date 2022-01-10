@@ -49,8 +49,8 @@ class QuizCardApiController extends Controller
         ]);
         // Create the quizcard object.
         $quizcard = QuizCard::create($data);
-        // Dispatch the Store QuizCard Job
-        QuizCardStore::dispatch($quizcard);
+        // Dispatch the Store QuizCard Job.
+        QuizCardStore::dispatch($quizcard)->onQueue('store');
         // Send the id back so that the frontend knows which channel to listen to.
         return $quizcard->id;
     }
