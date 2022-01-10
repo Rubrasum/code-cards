@@ -2,6 +2,9 @@
 
 namespace App\Jobs\QuizCard;
 
+use App\Events\QuizCard\Stored as QuizCardStored;
+use App\Http\Resources\QuizCardResource;
+use App\Models\QuizCard;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldBeUnique;
 use Illuminate\Contracts\Queue\ShouldQueue;
@@ -11,7 +14,7 @@ use Illuminate\Queue\SerializesModels;
 
 class Store implements ShouldQueue
 {
-    use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
+    use Dispatchable, InteractsWithQueue, Queueable;
 
     protected $quizcard;
 
