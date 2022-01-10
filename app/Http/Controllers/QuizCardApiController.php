@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Jobs\QuizCard\Store as QuizCardStore;
 use App\Http\Requests\StoreQuizCardRequest;
 use App\Http\Requests\UpdateQuizCardRequest;
 use App\Http\Resources\QuizCardCollection;
@@ -37,18 +38,21 @@ class QuizCardApiController extends Controller
      */
     public function store(Request $request)
     {
-
+        // Validate Form Data.
+        // Need to make sure this returns failure. Might do it automatically.
         $data = $request->validate([
             'deck' => 'required|max:80',
             'parent' => 'required|max:80',
             'type' => 'required|max:80',
             'data_string_1' => 'required|max:510',
             'data_string_2' => 'required|max:510',
-
         ]);
+        // Create the quizcard object.
         $quizcard = QuizCard::create($data);
-        logger($quizcard);
-        return new QuizcardResource($quizcard);
+        // Dispatch the Store QuizCard Job
+        QuizCardStore::dispatch($quizcard);
+        // Send the id back so that the frontend knows which channel to listen to.
+        return $quizcard->id;
     }
 
     /**
