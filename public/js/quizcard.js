@@ -1,4 +1,13 @@
 jQuery(document).ready(function($){
+    var user_id = jQuery("#user_id").val();
+    console.log(user_id);
+
+    Echo.channel(`quizcard.`+ user_id)
+        .listen('QuizCardStored', (e) => {
+            console.log("Hey look at you Jerry.");
+        });
+
+
 
     //----- Open model CREATE -----//
     jQuery('#btn-add').click(function () {
@@ -11,7 +20,7 @@ jQuery(document).ready(function($){
     $("#btn-save").click(function (e) {
         $.ajaxSetup({
             headers: {
-                'X-CSRF-TOKEN': jQuery('meta[name="csrf-token"]').attr('content')
+                'X-CSRF-TOKEN': jQuery('meta[name="csrf-token"]').attr('content') // btw don't understand this or if it needs updating for api
             }
         });
         e.preventDefault();
