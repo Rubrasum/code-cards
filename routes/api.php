@@ -4,7 +4,7 @@ use App\Http\Controllers\QuizCardApiController;
 use App\Http\Controllers\QuizCardController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-
+use App\Jobs\QuizCard\Store as QuizCardStore;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -23,3 +23,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::apiResources([
     'quizcards' => QuizCardApiController::class,
 ]);
+Route::get('/createJob', function() {
+    QuizCardStore::dispatch();
+    return "Hell yeah";
+});
